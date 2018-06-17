@@ -1,6 +1,6 @@
 # World cup streaming proxy
 
-## Hows to run?
+## How to run
 
 Make sure you have npm installed, then 
 
