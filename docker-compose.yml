@@ -1,0 +1,13 @@
+version: "3"
+services:
+  stream-ui:
+    build: .
+    restart: always
+    ports: 
+      - "8002:80"
+    environment:
+      - NODE_ENV=production
+      - PORT=80
+    container_name: stream-ui
+    
+
