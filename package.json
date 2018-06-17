@@ -1,0 +1,20 @@
+{
+  "name": "wcup-stream",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "clappr": "^0.2.96",
+    "express": "^4.16.3",
+    "express-http-proxy": "^1.2.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "server": "node server",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
