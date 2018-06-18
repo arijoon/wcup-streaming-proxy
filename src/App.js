@@ -11,24 +11,28 @@ class App extends Component {
       urls: [
         {
           name: 'BBC/ITV',
-          url: '/media1/s98.m3u8'
+          url: 's98.m3u8'
         },
         {
           name: 'TSN',
-          url: '/media1/s21.m3u8'
+          url: 's21.m3u8'
         }
       ]
     }
 
-    this.state.active = 0;
+    this.state.activeUrl = 0;
   }
 
   changePlayer(index) {
-    this.setState({ active: index });
+    this.setState({ activeUrl: index });
+  }
+
+  getLink(media, item) {
+    return `/${media}/${item}`;
   }
 
   render() {
-    const { urls, active, hideHeader } = this.state;
+    const { urls, activeUrl, hideHeader } = this.state;
     return (
       <div className="App">
         {!hideHeader && this.renderHeader()}
@@ -37,7 +41,7 @@ class App extends Component {
             <div className="input-group mb-3">
               <div className="input-group-append center">
                 {urls.map((item, index) =>
-                  <button key={item.url} className={`btn btn-outline-secondary ${index == active ? 'active' : ''}`} type="button"
+                  <button key={item.url} className={`btn btn-outline-secondary ${index === activeUrl && 'active'}`} type="button"
                     onClick={() => this.changePlayer(index)}>{item.name}</button>
                 )}
               </div>
@@ -45,8 +49,7 @@ class App extends Component {
           </div>
         </div>
         <div className="App-intro">
-          {/* <Player source={"/media1/s21.m3u8"} /> */}
-          <Player source={urls[active].url} />
+          <Player source={this.getLink('media1', urls[activeUrl].url)} />
         </div>
       </div>
     );
